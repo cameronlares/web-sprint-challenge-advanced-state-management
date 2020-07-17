@@ -8,7 +8,9 @@ import {createStore,applyMiddleware} from 'redux'
 import thunk from "redux-thunk"
 
 import {reducer} from "./reducers/reducer"
+// const store = createStore(reducer, applyMiddleware(thunk));
 const store = createStore(reducer, applyMiddleware(thunk, logger));
+
 
 ReactDOM.render(
     <React.StrictMode>

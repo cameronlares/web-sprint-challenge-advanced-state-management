@@ -10,17 +10,19 @@ export const fetchSmurfs = () => {
     return dispatch => {
         //1st dispatch an isLoading action
 
-        dispatch({
-            type: FETCH_SMURF_START
-        })
+        // dispatch({
+        //     type: FETCH_SMURF_START
+        // })
         //2nd - do the async operation
 
         axios
             .get("http://localhost:3333/smurfs")
             .then(res => {
+                console.log(res.data)
                 dispatch({
                     type: FETCH_SMURF_SUCESS,
                     payload: res.data
+                    
                 }) //fetching smurfs
             })
             .catch(err => {
@@ -41,7 +43,7 @@ export const addSmurf = newSmurf => dispatch => {
 
             dispatch({
                 type: ADD_SMURF,
-                payload: newSmurf
+                payload:newSmurf
             })
         )
 

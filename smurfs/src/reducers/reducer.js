@@ -6,29 +6,29 @@ import {
 } from "../actions/actions"
 
 const initialState = {
-    name: '',
-    age:'',
-    height: '',
-    id: ''
+    isLoading:false,
+   smurfList:[],
+   error:""
 }
+console.log(initialState.smurfList)
 
 export const reducer = (state = initialState, action) =>{
     switch(action.type){
-        case FETCH_SMURF_START:
+        case FETCH_SMURF_SUCESS:
             return{
                 ...state,
-                name: action.payload,
-                age: action.payload,
-                height: action.payload,
-                id: Date.now(),
+                isLoading: false,
+                smurfList: action.payload,
+                error: ""
             };
             case ADD_SMURF:
                 return {
-                    ...state,
-                    name: action.payload,
-                    age: action.payload,
-                    height: action.payload,
-                    id: Date.now(),
+                    ...state.smurfList,
+                      name: action.payload,
+                        age: action.payload,
+                        height: action.payload,
+                        id: Date.now()
+
                     
                 };
             default:
