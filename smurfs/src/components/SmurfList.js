@@ -51,6 +51,10 @@ const SmurfList = (props) => {
           <button> ADD SMURF </button>
         </form>
 
+{/* 
+//Display B Smurf */}
+
+<p>{props.state}</p>
         </div> 
         {/* {props.smurfList.map((smurf) => (
           <p key={smurf.id}>{props.name}</p>
@@ -61,13 +65,14 @@ const SmurfList = (props) => {
 }; //end smmurflist
 
 const mapStateToProps = (state) => {
+    console.log(state.smurfList)
   return {
-    // smurfList: state.smurfList,
-    // isLoading: state.isLoading,
+isLoading: state.isLoading,
     error: state.error,
-    name: state.smurfList.name,
+    name: state.name,
     age: state.smurfList.age,
     height: state.smurfList.height,
+    
   };
 };
 

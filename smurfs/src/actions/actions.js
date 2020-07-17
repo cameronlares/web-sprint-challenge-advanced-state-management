@@ -39,7 +39,7 @@ export const fetchSmurfs = () => {
 
 export const addSmurf = newSmurf => dispatch => {
 
-    axios.post('http://localhost:3333/smurfs', 
+    axios.post('http://localhost:3333/smurfs/', 
 
             dispatch({
                 type: ADD_SMURF,

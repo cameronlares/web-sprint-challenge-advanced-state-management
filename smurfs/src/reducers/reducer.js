@@ -10,24 +10,29 @@ const initialState = {
    smurfList:[],
    error:""
 }
-console.log(initialState.smurfList)
+console.log(initialState)
 
 export const reducer = (state = initialState, action) =>{
     switch(action.type){
         case FETCH_SMURF_SUCESS:
+            console.log(action.payload)
             return{
                 ...state,
                 isLoading: false,
                 smurfList: action.payload,
-                error: ""
-            };
+                error: "",
+        
+            }; 
+
             case ADD_SMURF:
+            console.log(action.payload)
+
                 return {
                     ...state.smurfList,
-                      name: action.payload,
+                        name: action.payload,
                         age: action.payload,
                         height: action.payload,
-                        id: Date.now()
+                        id: Date.now(),
 
                     
                 };
