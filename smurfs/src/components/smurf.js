@@ -1,9 +1,9 @@
 import React from "react";
 
-const Smurf = props => {
+const Smurf = (props) => {
   return (
     <div>
-      <p>{props.smurfs.name}</p> 
+      <p>{props.smurfs.name}</p>
     </div>
   );
 };

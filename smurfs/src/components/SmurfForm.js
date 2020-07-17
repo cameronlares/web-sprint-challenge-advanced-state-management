@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchSmurfs, addSmurf, ADD_SMURF } from "../actions/actions";
-import SmurfList from './SmurfList'
+import SmurfList from "./SmurfList";
 
 const SmurfForm = (props) => {
   useEffect(() => {
@@ -20,11 +20,12 @@ const SmurfForm = (props) => {
 
       <div>
         <div className="smurf-list">
-
-          <SmurfList smurfList={props.state} name={props.name} height={props.height} age={props.age}/>
-
-
-
+          <SmurfList
+            smurfList={props.state.smurfList}
+            name={props.name}
+            height={props.height}
+            age={props.age}
+          />
 
           <form onSubmit={props.addSmurf(props.newSmurf)}>
             <label htmlFor={props.name}>Smurf Name</label>
