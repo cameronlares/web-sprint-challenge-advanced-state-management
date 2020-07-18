@@ -3,7 +3,7 @@ import React from "react";
 const Smurf = (props) => {
   return (
     <div>
-      <p>{props.smurfs.name}</p>
+      <p>{props.name}{props.age}{props.height}</p>
     </div>
   );
 };
