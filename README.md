@@ -24,10 +24,29 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
+
+Context Api solves the major of prop drilling. React passes components from top to bottom but as the application scales passing components can become difficult if you are 100 layers deep. Context API allows you to pass data to all of your components without having to write them manually. 
+
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions are javascript objects that take in a type field that tells you the type of action that will be performed. Reducers is a function that takes two arguments, a state and an action which then returns a new state based on those arguments.
+The store is a central place to store all of your data. It is known as the single source of truth because you cannot change data anywhere else except in the store. Which then everything else related to that specific data will also be changed. 
+
+
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+For component state, information about that specific state can only be changed within that component, however application state is held within the store and can be accessed as long as it’s connected or hooked within the app. 
+
 4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk allows you to use action creators that will be returned as a function. Since the action flows through middleware then into our reducer and finally into our state. 
+
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+My favorite state management system is Redux and Context API, mainly of its purpose and it's the only one we’ve learned so far at lambda. Although it has a steep learning curve, I see the value when you building large applications and the need to manage state as we deal with thousands of data flowing back of forth
+
+
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
