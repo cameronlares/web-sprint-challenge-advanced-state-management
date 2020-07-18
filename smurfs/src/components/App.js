@@ -1,8 +1,18 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+import { connect } from "react-redux";
+
+import { fetchSmurfs, addSmurf, ADD_SMURF } from "../actions/actions";
+
 import SmurfForm from './SmurfForm'
-class App extends Component {
-  render() {
+const App = (props) => {
+    useEffect(() => {
+      //call the action creator
+  
+      props.fetchSmurfs();
+      props.addSmurf();
+    }, []);
+
     return (
       <div className="App">
     
@@ -11,7 +21,8 @@ class App extends Component {
         <SmurfForm/>
       </div>
     );
-  }
+  
 }
 
-export default App;
+// export default App;
+export default connect(null, { fetchSmurfs,addSmurf })(App);

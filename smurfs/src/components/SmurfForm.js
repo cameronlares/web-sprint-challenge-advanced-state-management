@@ -3,14 +3,36 @@ import { connect } from "react-redux";
 import { fetchSmurfs, addSmurf, ADD_SMURF } from "../actions/actions";
 import SmurfList from "./SmurfList";
 import { reducer } from "../reducers/reducer";
+import { useState } from "react";
 
 const SmurfForm = (props) => {
-  useEffect(() => {
-    //call the action creator
+  const initialValue = {
+    name: "",
+    age: "",
+    height: "",
+  };
 
-    props.fetchSmurfs();
-    props.addSmurf();
-  }, []);
+  const [inputSmurf, setSmurf] = useState(initialValue);
+
+  const handleChanges = (e) => {
+    setSmurf({
+      ...inputSmurf,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.addSmurf(inputSmurf);
+    setSmurf();
+  };
+
+  // useEffect(() => {
+  //   //call the action creator
+
+  //   props.fetchSmurfs();
+  //   props.addSmurf();
+  // }, []);
 
   return (
     <div>
@@ -21,25 +43,41 @@ const SmurfForm = (props) => {
 
       <div>
         <div className="smurf-list">
-          {/* <form>
-            <label htmlFor={props.name}>Smurf Name</label>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Smurf Name</label>
             <input
               autoComplete="off"
+              id="name"
+              name="name"
               type="text"
-       
-              value={props.name}
+              placeholder="name"
+              value={inputSmurf.name}
+              onChange={handleChanges}
             />
-         
 
-            <label htmlFor={props.age}>Smurf Age</label>
-            <input autoComplete="off" type="text" value={props.age} />
+            <label htmlFor={"age"}>Smurf Age</label>
+            <input
+              autoComplete="off"
+              id="age"
+              name="age"
+              type="text"
+              placeholder="Smurf age"
+              value={inputSmurf.age}
+              onChange={handleChanges}
+            />
 
-        
-
-            <label htmlFor={props.age}>Smurf height</label>
-            <input autoComplete="off" type="text" value={props.height} />
+            <label htmlFor={"height"}>Smurf height</label>
+            <input
+              autoComplete="off"
+              id="height"
+              name="height"
+              type="text"
+              value={inputSmurf.height}
+              placeholder="enter smurf height"
+              onChange={handleChanges}
+            />
             <button> ADD SMURF </button>
-          </form> */}
+          </form>
 
           {/* 
 //Display B Smurf */}
@@ -62,5 +100,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSmurfs, addSmurf })(SmurfForm);
-// export default connect(mapStateToProps,{})(SmurfForm);
+// export default connect(mapStateToProps, { fetchSmurfs, addSmurf })(SmurfForm);
+// export default connect(mapStateToProps, {})(SmurfForm);
+export default connect(null, { addSmurf })(SmurfForm);
+

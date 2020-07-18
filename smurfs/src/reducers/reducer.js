@@ -27,11 +27,8 @@ export const reducer = (state = initialState, action) => {
       console.log(action.payload);
 
       return {
-        ...state.smurfList,
-        name: action.payload,
-        age: action.payload,
-        height: action.payload,
-        id: Date.now(),
+        ...state,
+        smurfList: [...state.smurfList, action.payload],
       };
     default:
       return state;
