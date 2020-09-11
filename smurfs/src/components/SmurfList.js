@@ -1,5 +1,5 @@
 import React from "react";
-import Smurf from './smurf'
+import Smurf from "./smurf";
 import { connect } from "react-redux";
 
 const SmurfList = (props) => {
@@ -12,13 +12,9 @@ const SmurfList = (props) => {
           smurf={smurf}
         />
       ))}
-    
     </div>
   );
 };
-
-// export default SmurfList;
-
 
 const mapStateToProps = (state) => {
   return {

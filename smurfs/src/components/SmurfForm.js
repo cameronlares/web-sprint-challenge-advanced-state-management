@@ -100,7 +100,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// export default connect(mapStateToProps, { fetchSmurfs, addSmurf })(SmurfForm);
-// export default connect(mapStateToProps, {})(SmurfForm);
 export default connect(null, { addSmurf })(SmurfForm);
-
