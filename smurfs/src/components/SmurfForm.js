@@ -100,4 +100,5 @@ const mapStateToProps = (state) => {
   };
 };
 
+
 export default connect(null, { addSmurf })(SmurfForm);

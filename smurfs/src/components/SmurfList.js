@@ -8,7 +8,7 @@ const SmurfList = (props) => {
     <div>
       {props.state.map((smurf) => (
         <Smurf
-          // key={smurf.id}
+          key={smurf.id}
           smurf={smurf}
         />
       ))}

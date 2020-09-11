@@ -2,7 +2,7 @@ import {
   FETCH_SMURF_START,
   FETCH_SMURF_SUCESS,
   ADD_SMURF,
-  FETCH_SMURF_FAILURE,
+
 } from "../actions/actions";
 
 const initialState = {
